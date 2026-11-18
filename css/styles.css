@@ -144,8 +144,9 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; }
   margin-left: calc(var(--i) * 10px); transition: transform .3s cubic-bezier(.2, .8, .2, 1), border-color .3s, box-shadow .3s;
   opacity: 0; animation: layerIn .7s calc(.25s + var(--i) * .12s) cubic-bezier(.2, .8, .2, 1) forwards; }
 @keyframes layerIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-.layer::before { content: ""; position: absolute; left: -32px; top: 50%; width: 12px; height: 12px; margin-top: -6px;
-  border-radius: 50%; background: var(--surface); border: 2px solid var(--c); transition: background .3s; }
+.layer::before { content: ""; position: absolute; left: calc(-29px - var(--i) * 10px); top: 50%; width: 12px; height: 12px; margin-top: -6px;
+  border-radius: 50%; background: var(--surface); border: 2px solid var(--c); transition: background .3s, transform .3s cubic-bezier(.2, .8, .2, 1); }
+.layer:hover::before, .layer.is-hot::before { transform: translateX(-6px); }
 .layer--api { --c: var(--plum); } .layer--db { --c: var(--sun); } .layer--srv { --c: var(--leaf); }
 .layer__tag { grid-row: span 2; font-size: .72rem; color: var(--c); font-weight: 600; width: 34px; height: 34px;
   display: grid; place-items: center; border-radius: 10px; background: color-mix(in srgb, var(--c) 14%, transparent); }
@@ -429,7 +430,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; }
   .stack { padding: 34px 16px 28px 44px; }
   .stack::before { left: 21px; }
   .packet { left: 16px; }
-  .layer::before { left: -29px; }
+  .layer::before { left: -28px; }
   .layer { margin-left: 0; }
   .stack__caption { left: 44px; }
   .response { left: 44px; }
