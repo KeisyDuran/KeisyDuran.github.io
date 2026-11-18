@@ -251,7 +251,7 @@
 
   function openCase(id) {
     var c = CASES[id]; if (!c) return;
-    var h = '<p class="kicker mono">// ' + esc(c.kicker) + "</p>" +
+    var h = '<p class="kicker">' + esc(c.kicker) + "</p>" +
       '<h2 id="case-title">' + esc(c.title) + "</h2>" +
       '<p class="case__lead">' + esc(c.lead) + "</p>";
     if (c.stats) h += '<div class="case__stats">' + c.stats.map(function (s) { return "<div><b>" + esc(s[0]) + "</b><span>" + esc(s[1]) + "</span></div>"; }).join("") + "</div>";
