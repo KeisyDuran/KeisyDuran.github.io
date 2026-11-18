@@ -1,25 +1,15 @@
 # Portafolio · Keisy Duran
 
-Sitio personal estático (HTML, CSS y JavaScript, sin dependencias).
+Sitio personal: **https://keisyduran.github.io**
 
-## Estructura
+Desarrolladora de software (.NET, React, Next.js) y Analista de Servidores en Santo Domingo, República Dominicana.
+
+Sitio estático en HTML, CSS y JavaScript, sin dependencias ni paso de compilación. Publicado con GitHub Pages desde la rama `main`.
 
 ```
-index.html      Página principal
-css/styles.css  Estilos (tema claro/oscuro, responsive)
-js/main.js      Menú móvil, cambio de tema, año del footer
+index.html      Contenido del portafolio
+css/styles.css  Estilos (tema claro/oscuro, adaptable a móvil)
+js/main.js      Menú móvil, cambio de tema y año del pie de página
 ```
 
-## Ver en local
-
-Abre `index.html` en el navegador.
-
-## Publicar con GitHub Pages
-
-1. Crea un repositorio vacío en GitHub (por ejemplo `portafolio`).
-2. Conecta y sube:
-   ```
-   git remote add origin https://github.com/<tu-usuario>/portafolio.git
-   git push -u origin main
-   ```
-3. En GitHub: **Settings → Pages → Source: Deploy from a branch → `main` / root**.
+Para verlo en local: `python -m http.server 5500` y abrir http://localhost:5500
