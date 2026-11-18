@@ -2,7 +2,7 @@
 
 Sitio personal: **https://keisyduran.github.io**
 
-Desarrolladora de software (.NET, React, Next.js) y Analista de Servidores en Santo Domingo, República Dominicana.
+Desarrolladora de software backend (.NET) en Santo Domingo, República Dominicana.
 
 Sitio estático en HTML, CSS y JavaScript, sin dependencias ni paso de compilación. Publicado con GitHub Pages desde la rama `main`.
 
