@@ -113,9 +113,28 @@
       if (on && focus) t.focus();
     });
     $$(".layer").forEach(function (l) { l.classList.toggle("is-hot", l.dataset.role === role); });
+    var active = tabs.filter(function (t) { return t.dataset.role === role; })[0];
+    if (active && active.scrollIntoView && active.parentElement.scrollWidth > active.parentElement.clientWidth) {
+      active.parentElement.scrollTo({ left: active.offsetLeft - 16, behavior: reduce ? "auto" : "smooth" });
+    }
   }
+
+  /* Lleva la tarjeta del rol a la vista si quedó arriba o muy abajo */
+  var panels = $(".roles__panels"), tabList = $(".roles__tabs");
+  function absTop(el) { var y = 0; while (el) { y += el.offsetTop; el = el.offsetParent; } return y; }
+  function showPanel() {
+    var navH = nav.offsetHeight;
+    // En celular las pestañas van encima de la tarjeta y se quedan pegadas: hay que dejarles espacio
+    var stacked = getComputedStyle($(".roles")).gridTemplateColumns.trim().split(/\s+/).length < 2;
+    var margin = stacked ? navH + tabList.offsetHeight + 8 : navH + 28;
+    var top = absTop(panels) - scrollY;
+    if (top < margin - 4 || top > innerHeight * 0.45) {
+      scrollTo({ top: absTop(panels) - margin, behavior: reduce ? "auto" : "smooth" });
+    }
+  }
+
   tabs.forEach(function (t, i) {
-    t.addEventListener("click", function () { selectRole(t.dataset.role); });
+    t.addEventListener("click", function () { selectRole(t.dataset.role); showPanel(); });
     t.addEventListener("keydown", function (e) {
       var d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
       if (!d) return;
