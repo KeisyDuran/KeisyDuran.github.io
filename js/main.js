@@ -1,4 +1,4 @@
-// Año del footer
+// Año del pie de página
 document.getElementById("year").textContent = new Date().getFullYear();
 
 // Menú móvil
@@ -12,17 +12,14 @@ links.querySelectorAll("a").forEach((a) =>
   a.addEventListener("click", () => links.classList.remove("is-open"))
 );
 
-// Tema claro / oscuro
-const root = document.documentElement;
-try {
-  const saved = localStorage.getItem("theme");
-  if (saved) root.dataset.theme = saved;
-} catch (e) {}
-
-document.querySelector(".theme-toggle").addEventListener("click", () => {
-  const isDark =
-    root.dataset.theme === "dark" ||
-    (!root.dataset.theme && matchMedia("(prefers-color-scheme: dark)").matches);
-  root.dataset.theme = isDark ? "light" : "dark";
-  try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+// Aparición suave de las secciones al hacer scroll
+const io = "IntersectionObserver" in window
+  ? new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 })
+  : null;
+document.querySelectorAll(".section .container").forEach((el) => {
+  if (io) { el.classList.add("reveal"); io.observe(el); }
 });
