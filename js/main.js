@@ -163,11 +163,11 @@
   var CASES = {
     tourmanager: {
       kicker: "Proyecto propio · en producción",
-      title: "Tour Manager Pro",
+      title: "Tour Manager",
       lead: "Una plataforma SaaS multiempresa para agencias de turismo de República Dominicana. Empezó como un proyecto de la universidad en ASP.NET Core MVC y lo rediseñé como producto real: hoy una agencia lo usa a diario para su gestión.",
       link: "https://www.tourmanager.com.do",
       images: [
-        ["img/tm-hero.webp", "Página principal de Tour Manager Pro"],
+        ["img/tm-hero.webp", "Página principal de Tour Manager"],
         ["img/tm-modulos.webp", "Módulos de la plataforma"],
         ["img/tm-facturacion.webp", "Facturación con comprobantes fiscales de la DGII"]
       ],
