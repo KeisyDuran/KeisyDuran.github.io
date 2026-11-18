@@ -154,6 +154,22 @@
   $(".stack__qa").tabIndex = 0;
   $(".stack__qa").addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); this.click(); } });
 
+  /* La línea y la bolita van exactamente del primer punto al último */
+  var stackEl = $(".stack"), stackLayers = $$(".layer");
+  function fitStack() {
+    if (!stackEl || !stackLayers.length) return;
+    var a = stackLayers[0], b = stackLayers[stackLayers.length - 1];
+    var y0 = a.offsetTop + a.offsetHeight / 2, y1 = b.offsetTop + b.offsetHeight / 2;
+    stackEl.style.setProperty("--p0", (y0 - 6) + "px");
+    stackEl.style.setProperty("--p1", (y1 - 6) + "px");
+    stackEl.style.setProperty("--l0", y0 + "px");
+    stackEl.style.setProperty("--l1", (stackEl.clientHeight - y1) + "px");
+  }
+  fitStack();
+  addEventListener("resize", fitStack);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitStack);
+  if (window.ResizeObserver && stackEl) new ResizeObserver(fitStack).observe(stackEl);
+
   /* ---------- Filtro de proyectos ---------- */
   var projects = $$(".project"), filters = $$(".filter"), empty = $(".empty");
   filters.forEach(function (f) {

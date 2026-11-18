@@ -136,7 +136,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; }
 /* Signature stack */
 .stack { position: relative; display: grid; gap: 12px; padding: 34px 26px 30px 54px; border-radius: 26px;
   background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
-.stack::before { content: ""; position: absolute; left: 30px; top: 68px; bottom: 44px; width: 2px;
+.stack::before { content: ""; position: absolute; left: 30px; top: var(--l0, 68px); bottom: var(--l1, 44px); width: 2px;
   background: repeating-linear-gradient(to bottom, var(--line) 0 6px, transparent 6px 11px); }
 .stack__caption { position: absolute; top: 12px; left: 54px; font-size: .74rem; color: var(--muted); letter-spacing: .04em; }
 .layer { --c: var(--coral); position: relative; display: grid; grid-template-columns: auto 1fr; column-gap: 12px; align-items: center;
@@ -158,13 +158,13 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; }
   padding: 10px 14px; border-radius: 14px; text-align: center; box-shadow: var(--shadow); line-height: 1.25; }
 .stack__qa span { display: block; font-weight: 600; color: var(--leaf); }
 .stack__qa small { font-size: .72rem; opacity: .8; }
-.packet { position: absolute; left: 25px; top: 68px; width: 12px; height: 12px; border-radius: 50%; background: var(--coral);
+.packet { position: absolute; left: 25px; top: var(--p0, 68px); width: 12px; height: 12px; border-radius: 50%; background: var(--coral);
   box-shadow: 0 0 0 5px color-mix(in srgb, var(--coral) 25%, transparent); animation: travel 4.8s 1.4s cubic-bezier(.65, 0, .35, 1) infinite; opacity: 0; }
 @keyframes travel {
-  0% { top: 68px; opacity: 0; } 6% { opacity: 1; }
-  45% { top: calc(100% - 56px); background: var(--leaf); }
-  55% { top: calc(100% - 56px); background: var(--leaf); }
-  92% { top: 68px; opacity: 1; background: var(--coral); } 100% { top: 68px; opacity: 0; } }
+  0% { top: var(--p0, 68px); opacity: 0; } 6% { opacity: 1; }
+  45% { top: var(--p1, calc(100% - 56px)); background: var(--leaf); }
+  55% { top: var(--p1, calc(100% - 56px)); background: var(--leaf); }
+  92% { top: var(--p0, 68px); opacity: 1; background: var(--coral); } 100% { top: var(--p0, 68px); opacity: 0; } }
 .response { position: absolute; left: 54px; bottom: -16px; font-size: .78rem; padding: 6px 12px; border-radius: 999px;
   background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); animation: pop 4.8s 1.4s infinite; opacity: 0; }
 .response__code { color: var(--leaf); font-weight: 600; } .response__time { color: var(--muted); }
